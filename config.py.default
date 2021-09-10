@@ -1,0 +1,4 @@
+
+databaseFileName = 'database filename goes here'
+
+firstTable = 'default table name goes here. it can also be empty'
