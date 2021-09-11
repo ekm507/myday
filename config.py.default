@@ -3,5 +3,5 @@ database_filename = 'database filename goes here'
 
 first_table_name = 'default table name goes here. it can also be empty'
 
-hash_salt = 'this is the default hash salt'
+hash_salt = 'this is the default hash salt'.encode()
 
