@@ -72,7 +72,7 @@ class Records:
         unpacked_records = []
         for package in table_values:
             date_and_time = package[0]
-            contents, contents_types = self.unpack(package[1:], fernet_object=self.fernet_object)
+            contents_types, contents = self.unpack(package[1:], fernet_object=self.fernet_object)
 
             unpacked_records.append((date_and_time, contents_types, contents))
 
