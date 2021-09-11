@@ -27,6 +27,18 @@ class Records:
 
         return (date_and_time, content_types_bin, contents_bin)
     
+    def unpack(self, package):
+        if isinstance(package, (tuple, list)):
+            package_unpacked = []
+            for object in package:
+                object_unpacked = pickle.loads(object)
+                package_unpacked.append(object_unpacked)
+
+        else:
+            package_unpacked = pickle.loads(package)
+        
+        return package_unpacked
+    
     def add_record(self,contents_types:list, contents:list,  table_name:str=None):
 
         if table_name is None:
@@ -35,5 +47,7 @@ class Records:
         data_to_add = self.pack(contents_types, contents)
         self.cursor.execute( f'''INSERT INTO {table_name} VALUES (?, ?, ?) ''', data_to_add)
         self.connection.commit()
+    
+
 
 
