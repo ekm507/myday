@@ -22,10 +22,10 @@ class Records:
     def pack(self, contents_types:list, contents:list):
 
         date_and_time = datetime.datetime.now()
-        content_types_bin = pickle.dumps(contents_types)
+        contents_types_bin = pickle.dumps(contents_types)
         contents_bin = pickle.dumps(contents)
 
-        return (date_and_time, content_types_bin, contents_bin)
+        return (date_and_time, contents_types_bin, contents_bin)
     
     def unpack(self, package):
         if isinstance(package, (tuple, list)):
@@ -47,6 +47,24 @@ class Records:
         data_to_add = self.pack(contents_types, contents)
         self.cursor.execute( f'''INSERT INTO {table_name} VALUES (?, ?, ?) ''', data_to_add)
         self.connection.commit()
+    
+    def return_all_records(self, table_name:str=None):
+
+        if table_name is None:
+            table_name = self.first_table_name
+        
+        table_values = self.cursor.execute(f'''SELECT * FROM {table_name};''')
+        unpacked_records = []
+        for package in table_values:
+            date_and_time = package[0]
+            contents, contents_types = self.unpack(package[1:])
+
+            unpacked_records.append((date_and_time, contents_types, contents))
+
+        return unpacked_records
+
+        
+
     
 
 
