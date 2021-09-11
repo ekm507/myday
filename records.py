@@ -80,6 +80,24 @@ class Records:
 
         
 
+    def check_key(self, table_name:str=None):
+
+        if table_name is None:
+            table_name = self.first_table_name
+
+        first_records = self.cursor.execute(f'SELECT * FROM {table_name} ORDER BY ROWID ASC LIMIT 1')
+        for record in first_records:
+
+                try:
+                    self.unpack(record[1:], fernet_object=self.fernet_object)
+                except:
+                    print('wrong password!')
+                    exit(2)
+            
+
+
+        
+
     
 
 
