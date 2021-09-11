@@ -28,3 +28,8 @@ def generate_fernet(password, hash_salt):
     fernet_object = Fernet(key)
     return fernet_object
 
+
+
+def encrypt(data, fernet_object:Fernet):
+    token = fernet_object.encrypt(data)
+    return token
