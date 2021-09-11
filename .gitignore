@@ -1,2 +1,4 @@
 config.py
 *.db
+.venv
+__pycache__
