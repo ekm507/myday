@@ -22,3 +22,9 @@ def generate_key(password, hash_salt):
     key = base64.urlsafe_b64encode(generated_key.derive(password))
 
     return key
+
+def generate_fernet(password, hash_salt):
+    key = generate_key(password, hash_salt)
+    fernet_object = Fernet(key)
+    return fernet_object
+
