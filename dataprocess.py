@@ -33,3 +33,7 @@ def generate_fernet(password, hash_salt):
 def encrypt(data, fernet_object:Fernet):
     token = fernet_object.encrypt(data)
     return token
+
+def decrypt(token, fernet_object:Fernet):
+    data = fernet_object.decrypt(token)
+    return data
