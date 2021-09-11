@@ -1,11 +1,11 @@
 # myday: a simple yet powerful app for journaling
 
-Let's make a new app!
+__note__: this app is not usable yet!
 
 this is going to be a simple and powerful app for making daily journals.
 
 
-## what is this app
+## what is this app (goals)
 
 this is a note taking and diary writing app
 
@@ -27,3 +27,6 @@ looking at items below you can find.
 - this is completely cli based so that anyone can make a gui for this.
 - adding entries to journal is very easy.
 
+## todo
+
+- write a CLI
