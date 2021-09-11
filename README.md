@@ -15,7 +15,7 @@ below are the basic requirements this app has to satisfy
 
 - you can add text, image and files to your journals.
 - everything is encrypted.
-- you can have several journals.
+- you can have several journals, each with it's own password.
 - you have got a powerful command-line interface (CLI).
 
 
