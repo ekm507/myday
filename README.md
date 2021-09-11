@@ -117,3 +117,10 @@ $ python sample_cli link 'https://link_to_image.jpg'
 ## todo
 
 - write a CLI
+
+## contributors
+
+this app is made with great contributions from contributors.  
+
+- [Erfan Kheyrollahi](https://github.com/ekm507)
+- [Mahdi Baghbani](https://github.com/MahdiBaghbani)
