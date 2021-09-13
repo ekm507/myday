@@ -1,40 +1,38 @@
 # myday: a simple yet powerful app for journaling
 
-__note__: this app is not usable yet!
+__Warning__: this app is not usable yet!
 
-this is going to be a simple and powerful app for making daily journals.
+This is going to be a simple and powerful app for making daily journals.
 
+## What is this app (goals)
 
-## what is this app (goals)
+This is a note-taking and diary writing app
 
-this is a note taking and diary writing app
+### Why powerful?
 
-### why powerful?
-
-below are the basic requirements this app has to satisfy
+Below are the basic requirements this app has to satisfy
 
 - you can add text, image and files to your journals.
 - everything is encrypted.
-- you can have several journals, each with it's own password.
+- you can have several journals, each with its own password.
 - you have got a powerful command-line interface (CLI).
 
+### Why simple?
 
-### why simple?
-
-there are things this app should avoid.  
+There are things this app should avoid.  
 looking at items below you can find.
 
 - this is completely cli based so that anyone can make a gui for this.
 - adding entries to journal is very easy.
 
-## how to use
+## How to use
 
-this app is not ready to use yet because it does not have a suitable user interface.  
-but there is a sample CLI for it you can use for testing.
+This app is not ready to use yet because it does not have a suitable user interface.  
+but there is a sample CLI for it, you can use for testing.
 
-### download this app and install requirements
+### Download and Install
 
-first of all, clone this repository
+First, clone this repository
 
 ```bash
 $ git clone 'https://github.com/ekm507/myday.git'
@@ -46,81 +44,98 @@ then go into folder
 $ cd myday
 ```
 
-we recommend usage of virtualenv to run this.
+We recommend you to use pipenv for easy installation.
+
 ```bash
-$ virtualenv .venv
-$ source .venv/bin/activate
+pipenv --python 3.9 # put your own python version here instead of 3.9
+pipenv install --skip-lock
 ```
 
-then you need to install required libraries
+or you can manually install all dependencies with:
+
 ```bash
-$ pip install -r requirements.txt
+python3 -m pip install        \
+certifi==2021.5.30            \
+cffi==1.14.6                  \
+charset-normalizer==2.0.4     \
+cryptography==3.4.8           \
+idna==3.2                     \
+numpy==1.21.2                 \
+opencv-python==4.5.3.56       \
+pycparser==2.20               \
+requests==2.26.0              \
+simplejpeg==1.6.2             \
+urllib3==1.26.6               \
+pycryptodomex==3.10.1
 ```
 
+### Configure this app
 
-### configure this app
-
-then you have to configure it for yourself.  
-to do so copy file `config.py.default` into `config.py`
+Then you have to configure it for yourself.  
+To do so copy file `config.py.default` into `config.py`
 
 ```bash
 $ cp config.py.default config.py
 ```
 
-then you need to edit `config.py` file.
+Then you need to edit `config.py` file.
 
-set directory and name of your database file or the one you want to be created. for example:
+Set directory and name of your database file, or the one you want to be created. for example:
+
 ```python
 database_filename = '/home/myname/.myday.db'
 ```
 
-set name of your default journal. you can have several journals but one of them is your default.
+Set name of your default journal. you can have several journals but one of them is your default.
 
 ```python
 first_table_name = 'diary'
 ```
 
-for encryption, a hash salt is needed. you do not need to change this line, but if you want to do so:
+For encryption, a hash salt is needed. you do not need to change this line, but if you want to do so:
+
 ```python
 hash_salt = 'your hash salt goes here'.encode()
 ```
 
-### sample cli usage
+### CLI usage example
 
-the sample CLI file is named `sample_cli.py`
+The sample CLI file is named `sample_cli.py`
 
-to show all entries in default journal:
+To show all entries in default journal:
 
 ```bash
 $ python sample_cli.py show
 ```
 
-when you run it, it will ask you for password. if it's first time running the app, this password will be used to encrypt default journal.
-
+When you run it, it will ask you for password. if it's first time running the app, this password will be used to encrypt
+default journal.
 
 to add a new text to the journal:
+
 ```bash
 $ python sample_cli.py text 'your text goes here'
 ```
 
-to add an image file to the journal. it can only use jpeg format
+To add an image file to the journal. it can only use jpeg format (yet!):
 
 ```bash
 $ python sample_cli.py image '/address/to/your/image.jpg'
 ```
 
-to download an image and add it to the journal
+To download an image and add it to the journal (cool right?)
+
 ```bash
 $ python sample_cli link 'https://link_to_image.jpg'
 ```
 
-## todo
+## Todo
 
-- write a CLI
+- Write a CLI
 
-## contributors
+## Contributors
 
-this app is made with great contributions from contributors.  
+This app is made with great contributions from contributors.
 
 - [Erfan Kheyrollahi](https://github.com/ekm507)
 - [Mahdi Baghbani](https://github.com/MahdiBaghbani)
