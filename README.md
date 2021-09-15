@@ -1,6 +1,6 @@
 # myday: a simple yet powerful app for journaling
 
-__Warning__: this app is not usable yet!
+> __Warning__: this app is not usable yet!
 
 This is going to be a simple and powerful app for making daily journals.
 
@@ -44,29 +44,25 @@ then go into folder
 $ cd myday
 ```
 
-We recommend you to use pipenv for easy installation.
+We recommend you to use pipenv for easy installation:
 
 ```bash
 pipenv --python 3.9 # put your own python version here instead of 3.9
 pipenv install --skip-lock
 ```
 
-or you can manually install all dependencies with:
+optionally you can later lock your installation by creating a Pipfile.lock file via below code:
 
 ```bash
-python3 -m pip install        \
-certifi==2021.5.30            \
-cffi==1.14.6                  \
-charset-normalizer==2.0.4     \
-cryptography==3.4.8           \
-idna==3.2                     \
-numpy==1.21.2                 \
-opencv-python==4.5.3.56       \
-pycparser==2.20               \
-requests==2.26.0              \
-simplejpeg==1.6.2             \
-urllib3==1.26.6               \
-pycryptodomex==3.10.1
+pipenv lock
+```
+
+or you can manually install all dependencies with pip and virtualenv
+
+```bash
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ### Configure this app
